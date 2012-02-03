@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Period <%= @season.start %>–<%= @season.end %></h1>
+
+<p>
+  <b>Deadline:</b>
+  <%= @season.deadline %>
+</p>
+
+<h2>Groups:</h2>
+
+<ul>
+<% @season.groups.each do |group| %>
+    <li><%= link_to group.name, group %></li>
+<% end %>
+</ul>
+
+
+
+<%= link_to 'Edit', edit_season_path(@season) %> |
+<%= link_to 'Back', seasons_path %>

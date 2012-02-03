@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+  <h1><%= @person.first_name %>  <%= @person.last_name %></h1>
+
+<h2>Registered for groups:</h2>
+
+<ul>
+<% @person.registrations.each do |registration| %>
+    <li><%= link_to registration.group.name, registration.group %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

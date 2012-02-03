@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1><%= @group.name %></h1>
+
+
+<p>
+  <b>Description:</b>
+  <%= @group.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @group.url %>
+</p>
+
+<p><%= @group.registrations.count %> deltagare registrerade</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
