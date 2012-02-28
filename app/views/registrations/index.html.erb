@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Preference</th>
+    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +10,7 @@
 
 <% @registrations.each do |registration| %>
   <tr>
-    <td><%= registration.preference %></td>
+    <td><%= registration.name %></td>
     <td><%= link_to 'Show', registration %></td>
     <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
     <td><%= link_to 'Destroy', registration, confirm: 'Are you sure?', method: :delete %></td>

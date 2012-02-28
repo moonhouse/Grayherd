@@ -14,8 +14,18 @@
   <%= @group.url %>
 </p>
 
+<p>
+  <b>Antal platser:</b>
+  <%= @group.capacity %>
+</p>
+
+
 <p><%= @group.registrations.count %> deltagare registrerade</p>
 
+<p>
+  <b>Antal lediga platser:</b>
+  <%= @group.capacity - @group.registrations.count %> platser kvar
+</p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
+<%= link_to 'Registrera', registrations_path %>

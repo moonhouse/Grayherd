@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :organization %><br />
+    <%= f.collection_select :organization_id, Organization.all, :id, :name%>
+  </div>
   <div class="field">
     <%= f.label :start %><br />
     <%= f.date_select :start %>

@@ -1,4 +1,6 @@
 Grayherd::Application.routes.draw do
+  get "organizations/index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -10,6 +12,8 @@ Grayherd::Application.routes.draw do
   resources :groups
 
   resources :people
+
+  resources :organizations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,7 +64,7 @@ Grayherd::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'people#index'
+   root :to => 'organizations#index'
 
   # See how all your routes lay out with "rake routes"
 

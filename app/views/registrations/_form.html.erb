@@ -11,10 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :preference %><br />
-    <%= f.number_field :preference %>
+      <div class="field">
+    <%= f.label :group %><br />
+    <%= f.collection_select :group_id, Group.all, :id, :name %>
   </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+      <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+      <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.number_field :zipcode %>
+  </div>
+          <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+          <div class="field">
+    <%= f.label :ssn %><br />
+    <%= f.text_field :ssn %>
+  </div>
+
+              <div class="field">
+    <%= f.label :mobile_phone %><br />
+    <%= f.text_field :mobile_phone %>
+  </div>
+
+    <div class="field">
+  <%= f.label :allergies %><br />
+  <%= f.text_field :allergies %>
+</div>
+
+        <div class="field">
+  <%= f.label :parent_name %><br />
+  <%= f.text_field :parent_name %>
+</div>
+
+        <div class="field">
+  <%= f.label :parent_email %><br />
+  <%= f.text_field :parent_email %>
+</div>
+
+        <div class="field">
+  <%= f.label :parent_phone %><br />
+  <%= f.text_field :parent_phone %>
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

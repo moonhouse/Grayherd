@@ -11,11 +11,8 @@
 
 <ul>
 <% @season.groups.each do |group| %>
-    <li><%= link_to group.name, group %></li>
+    <li><%= link_to group.name, group %> <%= group.capacity - group.registrations.count %> platser kvar</li>
 <% end %>
 </ul>
 
-
-
-<%= link_to 'Edit', edit_season_path(@season) %> |
 <%= link_to 'Back', seasons_path %>

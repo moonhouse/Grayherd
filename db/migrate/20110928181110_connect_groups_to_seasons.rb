@@ -4,8 +4,6 @@ class ConnectGroupsToSeasons < ActiveRecord::Migration
       t.references :season
     end
     change_table :registrations do |t|
-      t.references :season
-      t.references :person
       t.references :group
     end
   end

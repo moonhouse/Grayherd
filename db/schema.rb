@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928205139) do
+ActiveRecord::Schema.define(:version => 20120228215500) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(:version => 20110928205139) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "group_applications", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.integer  "zipcode"
+    t.string   "ssn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -53,6 +63,16 @@ ActiveRecord::Schema.define(:version => 20110928205139) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "season_id"
+    t.integer  "capacity"
+    t.integer  "extra_capacity"
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "username"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", :force => true do |t|
@@ -66,9 +86,18 @@ ActiveRecord::Schema.define(:version => 20110928205139) do
     t.integer  "preference"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "season_id"
-    t.integer  "person_id"
     t.integer  "group_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.integer  "zipcode"
+    t.string   "city"
+    t.string   "ssn"
+    t.string   "mobile_phone"
+    t.string   "allergies"
+    t.string   "parent_name"
+    t.string   "parent_email"
+    t.string   "parent_phone"
   end
 
   create_table "seasons", :force => true do |t|
@@ -77,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20110928205139) do
     t.date     "deadline"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
   end
 
 end
