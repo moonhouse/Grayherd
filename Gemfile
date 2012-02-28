@@ -5,7 +5,7 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 
 
 gem "haml"
@@ -32,6 +32,12 @@ gem 'jquery-rails'
 
 group :development do
   gem 'rails-dev-tweaks', '~> 0.6.1'
+  gem 'heroku'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :test do
