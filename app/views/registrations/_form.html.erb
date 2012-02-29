@@ -1,7 +1,7 @@
 <%= form_for(@registration) do |f| %>
   <% if @registration.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+      <h2><%= pluralize(@registration.errors.count, "error") %> hindrade registrering från att sparas:</h2>
 
       <ul>
       <% @registration.errors.full_messages.each do |msg| %>
@@ -12,53 +12,53 @@
   <% end %>
 
       <div class="field">
-    <%= f.label :group %><br />
+    <%= f.label :grupp %><br />
     <%= f.collection_select :group_id, Group.all, :id, :name %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :namn %><br />
     <%= f.text_field :name %>
   </div>
       <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :adress %><br />
     <%= f.text_field :address %>
   </div>
       <div class="field">
-    <%= f.label :zipcode %><br />
+    <%= f.label :postnummer %><br />
     <%= f.number_field :zipcode %>
   </div>
           <div class="field">
-    <%= f.label :city %><br />
+    <%= f.label :ort %><br />
     <%= f.text_field :city %>
   </div>
           <div class="field">
-    <%= f.label :ssn %><br />
+    <%= f.label :personnummer %><br />
     <%= f.text_field :ssn %>
   </div>
 
               <div class="field">
-    <%= f.label :mobile_phone %><br />
+    <%= f.label :mobiltelefon %><br />
     <%= f.text_field :mobile_phone %>
   </div>
 
     <div class="field">
-  <%= f.label :allergies %><br />
+  <%= f.label :matallergier %><br />
   <%= f.text_field :allergies %>
 </div>
 
         <div class="field">
-  <%= f.label :parent_name %><br />
+  <%= f.label :förälders_namn %><br />
   <%= f.text_field :parent_name %>
 </div>
 
         <div class="field">
-  <%= f.label :parent_email %><br />
+  <%= f.label "Förälders e-post" %><br />
   <%= f.text_field :parent_email %>
 </div>
 
         <div class="field">
-  <%= f.label :parent_phone %><br />
+  <%= f.label :förälders_telefonnummer %><br />
   <%= f.text_field :parent_phone %>
 </div>
 

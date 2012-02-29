@@ -1,9 +1,9 @@
-<h1>Organizations</h1>
+<h1>Anmälningar hos följande organisationer</h1>
 
    <ul>
 <% @organizations.each do |organization| %>
 
-    <li><%= link_to_organizations_show %><%= organization.name %></li>
+    <li><%= link_to organization.name, organization %></li>
 <% end %>
        </ul>
 

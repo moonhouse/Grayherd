@@ -10,7 +10,6 @@ class OrganizationsController < ApplicationController
 
   def show
      @organization = Organization.find(params[:id])
-     p @organization.seasons
 
     respond_to do |format|
       format.html # show.html.erb

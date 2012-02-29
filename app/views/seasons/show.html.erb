@@ -7,12 +7,11 @@
   <%= @season.deadline %>
 </p>
 
-<h2>Groups:</h2>
+<h2>Grupper:</h2>
 
 <ul>
 <% @season.groups.each do |group| %>
-    <li><%= link_to group.name, group %> <%= group.capacity - group.registrations.count %> platser kvar</li>
+    <li><%= link_to group.name, group %>, <%= group.capacity - group.registrations.count %> platser kvar</li>
 <% end %>
 </ul>
 
-<%= link_to 'Back', seasons_path %>
