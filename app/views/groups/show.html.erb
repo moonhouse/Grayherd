@@ -5,13 +5,8 @@
 
 
 <p>
-  <b>Description:</b>
+  <b>Beskrivning:</b>
   <%= @group.description %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @group.url %>
 </p>
 
 <p>
@@ -27,5 +22,5 @@
   <%= @group.capacity - @group.registrations.count %> platser kvar
 </p>
 
-<%= link_to 'Back', groups_path %>
-<%= link_to 'Registrera', registrations_path %>
+<%= link_to 'Tillbaka till gruppöversikt', @group.season %>
+<%= link_to 'Registrera dig', :controller => "registrations", :action => "new" %>

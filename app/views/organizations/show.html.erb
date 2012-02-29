@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Anmälningsperioder hos <%= @organization.name %></h1>
+<h1>Pågående anmälningsperioder hos <%= @organization.name %></h1>
 
+<ul>
+<% @organization.seasons.each do |season| %>
+
+ <li><%= link_to season, season %></li>
+<% end %>
+    </ul>
