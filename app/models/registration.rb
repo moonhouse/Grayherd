@@ -42,6 +42,13 @@ class Registration < ActiveRecord::Base
 
     # Räkna ut kontrollsiffran
     errors.add(:ssn, 'Personnumret måste vara riktigt.') unless passes_luhn_check?(dssn)
+    begin
+      DateTime.strptime('19'+dssn.slice(0,6), '%Y%m%d')
+rescue
+    errors.add(:ssn, "Date error ")
+    end
+
+
   end
 
 
