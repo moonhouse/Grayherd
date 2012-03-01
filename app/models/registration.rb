@@ -6,6 +6,13 @@ class Registration < ActiveRecord::Base
   validates :address, :length => { :minimum => 5 }
   validates :city, :length => { :minimum => 3 }
   validates :parent_name, :length => { :minimum => 5 }
+  validates :parent_email, :presence => true,
+                     :length => {:minimum => 3, :maximum => 254},
+                     :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
+    validates :parent_phone, :presence => true,
+                     :length => {:minimum => 5, :maximum => 20},
+                     :format => {:with => /^(\+)?[0-9\ \-\(\)]{5,19}$/i}
+
   #validates :parent_email
   validate :validate_ssn
 
