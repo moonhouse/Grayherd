@@ -25,6 +25,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations/new.json
   def new
     @registration = Registration.new
+    @registration.group_id = params[:group].to_i unless params[:group].empty?
 
     respond_to do |format|
       format.html # new.html.erb
