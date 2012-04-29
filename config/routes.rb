@@ -1,9 +1,14 @@
 Grayherd::Application.routes.draw do
+  require 'sub_domain.rb'
   get "organizations/index"
   break if ARGV.join.include? 'assets:precompile'
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+
+   constraints SubDomain do
+    root :to => "organizations#show"
+  end
 
   resources :seasons
 
@@ -63,7 +68,7 @@ Grayherd::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete public/index.html.zurb.
    root :to => 'organizations#index'
 
   # See how all your routes lay out with "rake routes"
@@ -71,4 +76,7 @@ Grayherd::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+
+
+
 end

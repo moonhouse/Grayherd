@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
     @people = Person.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.zurb.erb
       format.json { render json: @people }
     end
   end

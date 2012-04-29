@@ -1,6 +1,17 @@
-<p id="notice"><%= notice %></p>
+<% content_for :panel do %>
+    <h5>Välkommen till anmälningstjänsten för <%= @organization.name %></h5>
+    <p></p>
+<% end %>
 
-<h1>Pågående anmälningsperioder hos <%= @organization.name %></h1>
+<% content_for :notice do %>
+    Hallo <%= notice %>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+   <li><span><%= @organization.name %></span></li>
+<% end %>
+
+<h2>Pågående anmälningsperioder</h2>
 
 <ul>
 <% @organization.seasons.each do |season| %>

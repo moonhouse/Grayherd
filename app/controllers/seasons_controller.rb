@@ -1,11 +1,11 @@
-class SeasonsController < ApplicationController
+class SeasonsController < SubDomainController
   # GET /seasons
   # GET /seasons.json
   def index
     @seasons = Season.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.zurb.erb
       format.json { render json: @seasons }
     end
   end

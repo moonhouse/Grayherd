@@ -1,4 +1,4 @@
-<%= form_for(@registration) do |f| %>
+<%= form_for @registration, :html => {:class => "nice"} do |f| %>
   <% if @registration.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@registration.errors.count, "error") %> hindrade registrering från att sparas:</h2>
@@ -11,58 +11,45 @@
     </div>
   <% end %>
 
-      <div class="field">
-    <%= f.label :grupp %><br />
-    <%= f.collection_select :group_id, Group.all, :id, :name %>
-  </div>
+    <h2><%= @registration.group.name %></h2>
 
-  <div class="field">
-    <%= f.label :namn %><br />
-    <%= f.text_field :name %>
-  </div>
-      <div class="field">
-    <%= f.label :adress %><br />
-    <%= f.text_field :address %>
-  </div>
-      <div class="field">
-    <%= f.label :postnummer %><br />
-    <%= f.number_field :zipcode %>
-  </div>
-          <div class="field">
-    <%= f.label :ort %><br />
-    <%= f.text_field :city %>
-  </div>
-          <div class="field">
-    <%= f.label :personnummer %><br />
-    <%= f.text_field :ssn %>
-  </div>
+    <%= f.hidden_field :group_id %>
 
-              <div class="field">
-    <%= f.label :mobiltelefon %><br />
-    <%= f.text_field :mobile_phone %>
-  </div>
+    <%= f.label :namn %>
+    <%= f.text_field :name, :class => "medium input-text" %>
 
-    <div class="field">
-  <%= f.label :matallergier %><br />
-  <%= f.text_field :allergies %>
-</div>
+    <%= f.label :adress %>
+    <%= f.text_field :address, :class => "medium input-text" %>
 
-        <div class="field">
-  <%= f.label :förälders_namn %><br />
-  <%= f.text_field :parent_name %>
-</div>
+    <%= f.label :postnummer %>
+    <%= f.number_field :zipcode, :class => "small input-text" %>
 
-        <div class="field">
-  <%= f.label "Förälders e-post" %><br />
-  <%= f.text_field :parent_email %>
-</div>
+    <%= f.label :ort %>
+    <%= f.text_field :city, :class => "small input-text" %>
 
-        <div class="field">
-  <%= f.label :förälders_telefonnummer %><br />
-  <%= f.text_field :parent_phone %>
-</div>
+    <div class="form-field error">
+    <%= f.label :personnummer %>
+    <%= f.text_field :ssn, :class => "small input-text" %>
+    <small>Personnumret måste vara riktigt.</small>
+	</div>
+
+
+    <%= f.label :mobiltelefon %>
+    <%= f.text_field :mobile_phone, :class => "small input-text" %>
+
+    <%= f.label :matallergier %>
+  <%= f.text_field :allergies, :class => "input-text" %>
+
+  <%= f.label :förälders_namn %>
+  <%= f.text_field :parent_name, :class => "input-text" %>
+
+  <%= f.label "Förälders e-post" %>
+  <%= f.text_field :parent_email, :class => "input-text" %>
+
+  <%= f.label :förälders_telefonnummer %>
+  <%= f.text_field :parent_phone, :class => "small input-text" %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button nice green", :value => "Spara anmälan"%>
   </div>
 <% end %>

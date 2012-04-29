@@ -1,15 +1,16 @@
-class OrganizationsController < ApplicationController
+class OrganizationsController < SubDomainController
   def index
     @organizations = Organization.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.zurb.erb
       format.json { render json: @organizations }
     end
   end
 
   def show
-     @organization = Organization.find(params[:id])
+
+     @organization = @organization || Organization.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,3 +1,14 @@
+<% content_for :panel do %>
+    <h5>Glöm inte att anmäla dig innan <%= @season.deadline %>!</h5>
+    <p><%=  @season.organization.name %> använder anmälningstjänsten Greyherd</p>
+    <p></p>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+   <li><%=link_to @season.organization.name, @season.organization  %></li>
+    <li><span>Period <%= @season.start %>–<%= @season.end %></span></li>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%=  @season.organization.name %></h1>

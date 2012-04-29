@@ -1,4 +1,28 @@
-<p id="notice"><%= notice %></p>
+<% content_for :breadcrumbs do %>
+   <li><%=link_to @group.season.organization.name, @group.season.organization  %></li>
+    <li><%=link_to @group.season, @group.season%></li>
+    <li><span><%= @group.name %></span></li>
+<% end %>
+
+<% content_for :panel do %>
+    <h5>Välkommen att anmäla dig till <%= @group.name %>!</h5>
+    <p>Tänk på att anmälningstiden går ut <%= @group.season.deadline %></p>
+<% end %>
+
+
+<% if @group.remaining_reserve_seats? %>
+<% content_for :notice do %>
+    <p>Det finns <%= @group.remaining_reserve_seats %> reservplatser kvar</p>
+<% end %>
+<% end %>
+
+<% if @group.no_seats_left? %>
+<% content_for :notice do %>
+    <p>Det finns inga platser kvar</p>
+<% end %>
+<% end %>
+
+
 
 <h1><%=  @group.season.organization.name %></h1>
 <h2>Period <%= @group.season.start %>–<%= @group.season.end %></h2>
@@ -19,10 +43,28 @@
 
 <p><%= @group.registrations.count %> deltagare registrerade</p>
 
+<% if @group.remaining_seats? %>
 <p>
   <b>Antal lediga platser:</b>
-  <%= @group.capacity - @group.registrations.count %> platser kvar
+  <%= @group.remaining_seats %> platser kvar
 </p>
+<% end %>
 
-<%= link_to 'Tillbaka till gruppöversikt', @group.season %>
-<%= link_to "Registrera dig", new_registration_path(:group => @group.id) %>
+<% if @group.remaining_reserve_seats? %>
+<p>
+  <b>Antal lediga platser:</b>
+  Alla ordinarie platser är upptagna.
+</p>
+<% end %>
+
+<% if @group.no_seats_left? %>
+<p>
+  <b>Antal lediga platser:</b>
+  Alla platser är upptagna.
+</p>
+<% end %>
+
+
+<% unless @group.no_seats_left? %>
+<a href="<%= new_registration_path(:group => @group.id)%>" class="nice radius green button">Registrera dig</a>
+<% end %>
