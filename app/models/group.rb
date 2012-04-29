@@ -3,7 +3,11 @@ class Group < ActiveRecord::Base
   belongs_to :season
 
   def remaining_seats
+    if remaining_seats?
      capacity - registrations.count
+    else
+      0
+    end
   end
 
   def remaining_seats?

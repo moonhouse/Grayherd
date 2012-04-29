@@ -16,6 +16,6 @@
 <ul>
 <% @organization.seasons.each do |season| %>
 
- <li><%= link_to season, season %></li>
+ <li><%= link_to season.name, season %></li>
 <% end %>
     </ul>

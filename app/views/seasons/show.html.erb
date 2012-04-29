@@ -6,12 +6,13 @@
 
 <% content_for :breadcrumbs do %>
    <li><%=link_to @season.organization.name, @season.organization  %></li>
-    <li><span>Period <%= @season.start %>–<%= @season.end %></span></li>
+    <li><span><%= @season.name %></span></li>
 <% end %>
 
 <p id="notice"><%= notice %></p>
 
-<h1><%=  @season.organization.name %></h1>
+<h3><%=  @season.organization.name %></h3>
+<h1><%= @season.name %></h1>
 <h2>Period <%= @season.start %>–<%= @season.end %></h2>
 
 <p>
@@ -23,7 +24,20 @@
 
 <ul>
 <% @season.groups.each do |group| %>
-    <li><%= link_to group.name, group %>, <%= group.capacity - group.registrations.count %> platser kvar</li>
+
+    <li><%= link_to group.name, group %>,
+      <% if group.remaining_seats? %>
+
+      <%= group.remaining_seats %> platser kvar
+      <% elsif group.remaining_reserve_seats? %>
+
+      <%= group.remaining_reserve_seats %> reservplatser kvar
+          <%else%>
+      alla platser upptagna
+      <% end %>
+
+          </li>
+
 <% end %>
 </ul>
 
