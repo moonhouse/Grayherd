@@ -1,6 +1,6 @@
 <% content_for :breadcrumbs do %>
    <li><%=link_to @group.season.organization.name, @group.season.organization  %></li>
-    <li><%=link_to @group.season, @group.season%></li>
+    <li><%=link_to @group.season.name, @group.season%></li>
     <li><span><%= @group.name %></span></li>
 <% end %>
 
