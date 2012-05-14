@@ -14,7 +14,7 @@ class Registration < ActiveRecord::Base
                      :format => {:with => /^(\+)?[0-9\ \-\(\)]{5,19}$/i}
 
   #validates :parent_email
-  validate :validate_ssn
+  validate :validate_ssn, :uniqueness => true
 
   def passes_luhn_check?(str)
     sum = 0
