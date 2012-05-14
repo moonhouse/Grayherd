@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class RegistrationsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
