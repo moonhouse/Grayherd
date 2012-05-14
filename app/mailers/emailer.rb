@@ -9,6 +9,6 @@ class Emailer < ActionMailer::Base
 
   def reserve_email(registration)
     @registration = registration
-    mail(:from => registration.group.sender_email ,:to => registration.parent_email, :subject => "Ni har fått reservplats till #{registration.group.name}")
+    mail(:from => registration.group.sender_email ,:to => registration.parent_email, :subject => "Du är på reservplats till #{registration.group.name}")
   end
 end
