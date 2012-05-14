@@ -45,6 +45,7 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.save
+        Emailer.confirmation_email(@registration).deliver
         format.html { redirect_to @registration, notice: 'Registration was successfully created.' }
         format.json { render json: @registration, status: :created, location: @registration }
       else
