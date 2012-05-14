@@ -1,4 +1,4 @@
-sv-SE:
+sv:
   date:
     abbr_day_names:
     - sön
@@ -195,20 +195,37 @@ sv-SE:
     errors:
       <<: *errors
   activerecord:
+    models:
+      registration: "Anmälan"
+    attributes:
+      registration:
+        address: "Adress"
+        city: "Postort"
+        parent_name: "Förälderns namn"
+        parent_email: "Förälderns e-postadress"
+        ssn: "Personnummer"
+        group: "Gruppen"
     errors:
       models:
         registration:
           attributes:
             address:
-              too_short: "Adressen är för kort"
+              too_short: "är för kort"
             city:
-              too_short: "Saknar fullständigt ortsnamn"
+              too_short: "saknar fullständigt ortsnamn"
             parent_name:
-              too_short: "Förälders namn saknas"
+              too_short: "saknas"
             name:
-              too_short: "Namnet är för kort"
+              too_short: "är för kort"
             parent_email:
-              blank:  "Förälderns e-postadress saknas"
-              too_short:  "Förälderns e-postadress är för kort"
-              invalid: "Förälderns e-postadress är ogiltig"
+              blank:  "saknas"
+              too_short:  "är för kort"
+              invalid: "är ogiltig"
+            ssn:
+              taken: "finns redan registrerat"
+              wrong_format: "har fel antal siffror"
+              wrong_date: "har ett felaktigt datum"
+              wrong_checksum: "är felaktigt"
+            group:
+              fully_booked: "är fullbokad"
       <<: *errors

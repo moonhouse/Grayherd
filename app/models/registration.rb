@@ -14,7 +14,9 @@ class Registration < ActiveRecord::Base
                      :format => {:with => /^(\+)?[0-9\ \-\(\)]{5,19}$/i}
 
   #validates :parent_email
-  validate :validate_ssn, :uniqueness => true
+  validates :ssn, :uniqueness => true
+  validate :validate_ssn
+  validate :seats_left
 
   def passes_luhn_check?(str)
     sum = 0
@@ -27,12 +29,20 @@ class Registration < ActiveRecord::Base
     sum % 10 == 0
   end
 
+  def seats_left
+    if group.remaining_seats > 0 or group.remaining_reserve_seats > 0
+      puts "Seats left"
+    else
+      errors.add(:group, :fully_booked)
+    end
+  end
+
   def validate_ssn
     # Kontrollera antal siffror i personnummret.
     dssn = ssn.gsub(/[^0-9]/, "")
 
     if not (dssn.size == 10 or dssn.size == 12)
-      errors.add(:ssn, " innehåller fel antal siffror. (ÅÅÅÅMMDDXXXX)")
+      errors.add(:ssn, :wrong_format)
     end
 
     if dssn.size == 12
@@ -41,11 +51,11 @@ class Registration < ActiveRecord::Base
     end
 
     # Räkna ut kontrollsiffran
-    errors.add(:ssn, 'är inte rätt ifyllt.') unless passes_luhn_check?(dssn)
+    errors.add(:ssn, :wrong_checksum) unless passes_luhn_check?(dssn)
     begin
       DateTime.strptime('19'+dssn.slice(0,6), '%Y%m%d')
 rescue
-    errors.add(:ssn, " har felaktigt datum")
+    errors.add(:ssn, :wrong_date)
     end
 
 
