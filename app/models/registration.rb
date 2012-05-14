@@ -7,18 +7,28 @@ class Registration < ActiveRecord::Base
   validates :city, :length => { :minimum => 3 }
   validates :parent_name, :length => { :minimum => 5 }
   validates :parent_email, :presence => true,
-                     :length => {:minimum => 3, :maximum => 254},
-                     :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
-    validates :parent_phone, :presence => true,
-                     :length => {:minimum => 5, :maximum => 20},
-                     :format => {:with => /^(\+)?[0-9\ \-\(\)]{5,19}$/i}
+            :length => {:minimum => 3, :maximum => 254},
+            :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
+  validates :parent_phone, :presence => true,
+            :length => {:minimum => 5, :maximum => 20},
+            :format => {:with => /^(\+)?[0-9\ \-\(\)]{5,19}$/i}
 
   #validates :parent_email
   validates :ssn, :uniqueness => true
   validate :validate_ssn
   validate :seats_left
 
+  before_validation(:on => :create) do
+    self.ssn = ssn.gsub(/[^0-9]/, "") if attribute_present?("ssn")
+    if ssn.size == 10
+      self.ssn = "19"+self.ssn
+    end
+  end
+
   def passes_luhn_check?(str)
+    if str.size == 12
+      str = str.slice(2,10)
+    end
     sum = 0
     numbers = str.split(//).map(&:to_i)
     numbers.each_with_index do |n, i|
@@ -39,23 +49,18 @@ class Registration < ActiveRecord::Base
 
   def validate_ssn
     # Kontrollera antal siffror i personnummret.
-    dssn = ssn.gsub(/[^0-9]/, "")
+    dssn = ssn
 
-    if not (dssn.size == 10 or dssn.size == 12)
+    if not dssn.size == 12
       errors.add(:ssn, :wrong_format)
-    end
-
-    if dssn.size == 12
-      dssn = dssn.slice(2,10)
-      puts dssn
     end
 
     # Räkna ut kontrollsiffran
     errors.add(:ssn, :wrong_checksum) unless passes_luhn_check?(dssn)
     begin
-      DateTime.strptime('19'+dssn.slice(0,6), '%Y%m%d')
-rescue
-    errors.add(:ssn, :wrong_date)
+      DateTime.strptime(dssn.slice(0,8), '%Y%m%d')
+    rescue
+      errors.add(:ssn, :wrong_date)
     end
 
 
