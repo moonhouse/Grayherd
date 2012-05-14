@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+  <h1>Du har fått en reservplats till <%= @registration.group.name %></h1>
+
+<p>Vi kommer att höra av oss senast i mitten av juli angående din plats.</p>
+
+<p>Varma hälsningar</p>
+
+<address><%= @registration.group.sender_address %></address>
+  </body>
+</html>

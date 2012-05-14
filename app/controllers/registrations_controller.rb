@@ -46,11 +46,12 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.save
-        Emailer.confirmation_email(@registration).deliver
         if @registration.group.remaining_seats == 0
           notice = 'Du har givits en reservplats i gruppen eftersom alla ordinarie platser var tagna.'
+          Emailer.reserve_email(@registration).deliver
         else
           notice = 'Din anmälan är mottagen.'
+          Emailer.confirmation_email(@registration).deliver
         end
         format.html { redirect_to @registration, notice: notice }
         format.json { render json: @registration, status: :created, location: @registration }
