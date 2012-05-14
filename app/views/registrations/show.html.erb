@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Anmälan <%= @registration.group.name %></h1>
+
+<p>Vi har skickat mejl till <%= @registration.parent_email  %> med följande e-post</p>
+
 <p>
-  <b>Preference:</b>
-  <%= @registration.preference %>
+  <b><%= @registration.group.mail_message %></b>
 </p>
+<address><%= @registration.group.sender_address %></address>
 
-
-<%= link_to 'Edit', edit_registration_path(@registration) %> |
 <%= link_to 'Back', registrations_path %>
