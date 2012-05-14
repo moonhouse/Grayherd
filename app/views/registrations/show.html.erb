@@ -1,8 +1,9 @@
+# encoding: UTF-8
 <p id="notice"><%= notice %></p>
 
 <h1>Anmälan <%= @registration.group.name %></h1>
 
-<p>Vi har skickat mejl till <%= @registration.parent_email  %> med följande e-post</p>
+<p>Vi har skickat mejl till <%= @registration.parent_email  %> med följande e-post. Om du inte fått mejlet bör du kolla i din spamfolder.</p>
 
 <p>
   <b><%= @registration.group.mail_message %></b>
