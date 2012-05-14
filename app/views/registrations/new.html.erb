@@ -1,3 +1,19 @@
+# encoding: UTF-8
+<% content_for :panel do %>
+    <h5>Nu behöver du fylla i formuläret för <%= @registration.group.name %></h5>
+    <p></p>
+<% end %>
+
+<% content_for :notice do %>
+    <%= notice %>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+   <li><%=link_to @registration.group.season.organization.name, @registration.group.season.organization  %></li>
+    <li><%=link_to @registration.group.season.name, @registration.group.season%></li>
+    <li><%=link_to @registration.group.name, @registration.group.season%></li>
+<% end %>
+
 <h1>Ny registrering</h1>
 
 <%= render 'form' %>

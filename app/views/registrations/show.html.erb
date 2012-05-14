@@ -1,5 +1,12 @@
 # encoding: UTF-8
-<p id="notice"><%= notice %></p>
+<% content_for :panel do %>
+    <h5><%= @organization.name %></h5>
+    <p></p>
+<% end %>
+
+<% content_for :notice do %>
+    <%= notice %>
+<% end %>
 
 <h1>Anmälan <%= @registration.group.name %></h1>
 
@@ -12,4 +19,4 @@
 </p>
 <address><%= @registration.group.sender_address %></address>
 
-<%= link_to 'Back', registrations_path %>
+<%= link_to 'Back', organizations_path %>
