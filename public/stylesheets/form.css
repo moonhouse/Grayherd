@@ -1,0 +1,35 @@
+.arrow_box {
+	position: relative;
+	background: #e8e59b;
+	border: 2px solid #f5ad1d;
+}
+.arrow_box:after, .arrow_box:before {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-right-color: #e8e59b;
+	border-width: 7px;
+	top: 50%;
+	margin-top: -7px;
+}
+.arrow_box:before {
+	border-right-color: #f5ad1d;
+	border-width: 10px;
+	top: 50%;
+	margin-top: -10px;
+}
+.arrow_box {
+height: 33px;
+font-size: 120%;
+padding: 5px;
+margin-top: -46px;
+display:none;
+    float:right;
+}

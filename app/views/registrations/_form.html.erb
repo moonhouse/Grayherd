@@ -1,4 +1,7 @@
 <%= form_for @registration, :html => {:class => "nice"} do |f| %>
+    <script src="/javascripts/plugins/jquery.textchange.js"></script>
+    <script src="/javascripts/form.js"></script>
+      <link rel="stylesheet" href="/stylesheets/form.css">
   <% if @registration.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@registration.errors.count, "error") %> hindrade registrering från att sparas:</h2>
@@ -27,12 +30,12 @@
     <%= f.label :ort %>
     <%= f.text_field :city, :class => "small input-text" %>
 
-    <div class="form-field error">
+  <!--  <div class="form-field error">   -->
     <%= f.label :personnummer %>
     <%= f.text_field :ssn, :class => "small input-text" %>
-    <small>Personnumret måste vara riktigt.</small>
-	</div>
-
+  <!--  <small>Personnumret måste vara riktigt.</small>
+	</div>              -->
+    <div class="arrow_box" id="ssn_info">I formatet ÅÅÅÅMMDD-NNNN</div>
 
     <%= f.label :mobiltelefon %>
     <%= f.text_field :mobile_phone, :class => "small input-text" %>

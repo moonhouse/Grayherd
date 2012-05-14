@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+  <h1>Välkommen till <%= @registration.group.name %>, vi ser fram emot att få träffa dig!</h1>
+
+<p><%= @registration.group.mail_message %></p>
+
+<p>Varma hälsningar</p>
+
+<address><%= @registration.group.sender_address %></address>
+  </body>
+</html>

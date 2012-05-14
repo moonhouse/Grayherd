@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429230623) do
+ActiveRecord::Schema.define(:version => 20120514211723) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -65,6 +65,9 @@ ActiveRecord::Schema.define(:version => 20120429230623) do
     t.integer  "season_id"
     t.integer  "capacity"
     t.integer  "extra_capacity"
+    t.text     "mail_message"
+    t.text     "sender_address"
+    t.string   "sender_email"
   end
 
   create_table "organizations", :force => true do |t|
