@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Emailer < ActionMailer::Base
   default from: "welcome@greyherd.com"
 
