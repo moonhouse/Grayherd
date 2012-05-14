@@ -202,6 +202,7 @@ sv:
         address: "Adress"
         city: "Postort"
         parent_name: "Förälderns namn"
+        parent_phone: "Förälderns telefonnummer"
         parent_email: "Förälderns e-postadress"
         ssn: "Personnummer"
         group: "Gruppen"
