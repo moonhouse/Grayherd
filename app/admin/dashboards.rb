@@ -3,8 +3,8 @@ ActiveAdmin::Dashboards.build do
 
        section "Recent Registrations" do
        ul do
-         Registration.recent(5).collect do |reg|
-           li link_to(reg.title, admin_registration_path(reg))
+         Registration.find(:all, :order => "id desc", :limit => 5).reverse.collect do |reg|
+           li link_to(reg.name, admin_registration_path(reg))
          end
        end
      end
