@@ -4,7 +4,7 @@ class OrganizationsController < SubDomainController
 
     respond_to do |format|
       format.html # index.html.zurb.erb
-      format.json { render json: @organizations }
+      #format.json { render json: @organizations }
     end
   end
 
@@ -14,7 +14,7 @@ class OrganizationsController < SubDomainController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @organization }
+     # format.json { render json: @organization }
     end
   end
 
