@@ -15,12 +15,14 @@ class Group < ActiveRecord::Base
   end
 
   def remaining_reserve_seats?
-    !remaining_seats? && (extra_capacity + capacity) > registrations.count
+    extra_capacity_num = extra_capacity.nil? ? 0 : extra_capacity # temp fix since
+    !remaining_seats? && (extra_capacity_num + capacity) > registrations.count
   end
 
   def remaining_reserve_seats
+    extra_capacity_num = extra_capacity.nil? ? 0 : extra_capacity
     if remaining_reserve_seats?
-      (extra_capacity + capacity) - registrations.count
+      (extra_capacity_num + capacity) - registrations.count
     else
       if remaining_seats?
         false

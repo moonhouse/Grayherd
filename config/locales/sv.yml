@@ -4,8 +4,16 @@ sv:
   activerecord:
     models:
       registration: "Anmälan"
+      group: "Grupp"
+      organization: "Organisation"
+      season: "Säsong"
     attributes:
       registration:
+        name: "Namn"
+        email: "E-post"
+        zipcode: "Postnummer"
+        mobile_phone: "Mobiltelefonnummer"
+        allergies: "Allergier"
         address: "Adress"
         city: "Postort"
         parent_name: "Förälderns namn"
@@ -13,6 +21,11 @@ sv:
         parent_email: "Förälderns e-postadress"
         ssn: "Personnummer"
         group: "Gruppen"
+      season:
+        start: "Start"
+        end: "Slut"
+        deadline: "Deadline"
+        name: "Namn"
     errors:
       models:
         registration:
@@ -36,3 +49,6 @@ sv:
               wrong_checksum: "är felaktigt"
             group:
               fully_booked: "är fullbokad"
+  on_reserve: "Du är på reservplats i gruppen eftersom alla ordinarie platser var tagna."
+  registration_received: "Din anmälan är mottagen."
+  recent_registrations: "Nya anmälningar"
