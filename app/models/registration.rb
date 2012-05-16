@@ -66,6 +66,9 @@ class Registration < ActiveRecord::Base
 
   end
 
+  def row_array
+    [id, created_at, updated_at, name, email, address, zipcode, city, ssn, mobile_phone, allergies, parent_name, parent_email, parent_phone, extra_info]
+  end
 
 
 end
