@@ -47,11 +47,11 @@ class RegistrationsController < ApplicationController
     respond_to do |format|
       if @registration.save
         if @registration.group.remaining_seats == 0
-          notice = 'Du är på reservplats i gruppen eftersom alla ordinarie platser var tagna.'
+          notice = t('on_reserve')
           Emailer.reserve_email(@registration).deliver
           @reserve = true
         else
-          notice = 'Din anmälan är mottagen.'
+          notice = t('registration_received')
           Emailer.confirmation_email(@registration).deliver
           @reserve = false
         end
