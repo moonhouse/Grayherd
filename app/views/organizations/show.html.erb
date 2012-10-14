@@ -14,7 +14,7 @@
 <h2>Pågående anmälningsperioder</h2>
 
 <ul>
-<% @organization.seasons.each do |season| %>
+<% @organization.current_seasons.each do |season| %>
 
  <li><%= link_to season.name, season %></li>
 <% end %>

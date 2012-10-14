@@ -1,6 +1,10 @@
 class Organization < ActiveRecord::Base
   has_many :seasons
 
+  def current_seasons
+    seasons.where("deadline >= ?", Time.now)
+  end
+
   def as_json(options={})
     { name: name,
       id: id,
