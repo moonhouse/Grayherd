@@ -11,6 +11,7 @@ gem 'spreadsheet'
 gem "haml"
 gem 'activeadmin'
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'tilt', '1.3.4'
 
 
 # Gems used only for assets and not required
