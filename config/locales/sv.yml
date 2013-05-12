@@ -1,6 +1,6 @@
 sv:
   activemodel:
-    errors:
+    errors: "fel"
   activerecord:
     models:
       registration: "Anmälan"
@@ -48,7 +48,8 @@ sv:
               wrong_date: "har ett felaktigt datum"
               wrong_checksum: "är felaktigt"
             group:
-              fully_booked: "är fullbokad"
+              fully_booked: "är helt fullbokad"
+              invalid_ticket: "kan tyvärr inte bokas eftersom din reservation har gått ut och inte kunde förnyas"
   on_reserve: "Du är på reservplats i gruppen eftersom alla ordinarie platser var tagna."
   registration_received: "Din anmälan är mottagen."
   recent_registrations: "Nya anmälningar"

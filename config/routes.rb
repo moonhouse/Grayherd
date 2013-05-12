@@ -12,6 +12,8 @@ Grayherd::Application.routes.draw do
 
   resources :seasons
 
+  match "/sync/servertime" => "registrations#servertime"
+
   resources :registrations
 
   resources :groups

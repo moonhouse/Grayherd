@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 class Registration < ActiveRecord::Base
+  attr_accessor :registration_ticket
+
   belongs_to :group
+  validate :valid_registration_ticket
   validates :name, :length => { :minimum => 5 }
   validates :address, :length => { :minimum => 5 }
   validates :city, :length => { :minimum => 3 }
@@ -22,6 +25,15 @@ class Registration < ActiveRecord::Base
     self.ssn = ssn.gsub(/[^0-9]/, "") if attribute_present?("ssn")
     if ssn.size == 10
       self.ssn = "19"+self.ssn
+    end
+  end
+
+  def valid_registration_ticket
+    puts "VRD #{registration_ticket}"
+    if registration_ticket.still_valid?
+      puts "Valid ticket"
+    else
+      errors.add(:group, :invalid_ticket)
     end
   end
 

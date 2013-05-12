@@ -17,3 +17,9 @@
 <h1>Ny registrering</h1>
 
 <%= render 'form' %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('#regcountdown').countdown({until: new Date(Date.UTC(<%= @rt.javascript_version %>)), serverSync: serverTime, expiryText: 'Reservationstiden för registreringen har gått ut. Du är inte längre garanterad en plats men kan få den i fall det finns oreserverade platser kvar i gruppen när du trycker Spara.'});
+});
+</script>

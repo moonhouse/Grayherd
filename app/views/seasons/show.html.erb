@@ -27,8 +27,7 @@
 
     <li><%= link_to group.name, group %>,
       <% if group.remaining_seats? %>
-
-      <%= group.remaining_seats %> platser kvar
+      <%= group.remaining_tickets %> platser kvar
       <% elsif group.remaining_reserve_seats? %>
 
       <%= group.remaining_reserve_seats %> reservplatser kvar
@@ -41,3 +40,4 @@
 <% end %>
 </ul>
 
+Vill du ställa dig i kö på en redan fulltecknad grupp, skicka ett mejl med alla uppgifter till <a href="mailto:ami.hall@svenskakyrkan.se">Ami Hall</a>.

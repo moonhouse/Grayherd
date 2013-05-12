@@ -41,12 +41,14 @@
 </p>
 
 
-<p><%= @group.registrations.count %> deltagare registrerade</p>
+<p><%= @group.registrations.count %> deltagare registrerade
+(<%= @group.outstanding_tickets %> personer håller på att fylla i registreringsformulär)
+</p>
 
 <% if @group.remaining_seats? %>
 <p>
   <b>Antal lediga platser:</b>
-  <%= @group.remaining_seats %> platser kvar
+  <%= @group.remaining_tickets %> platser kvar
 </p>
 <% end %>
 
@@ -64,7 +66,12 @@
 </p>
 <% end %>
 
-
-<% unless @group.no_seats_left? %>
-<a href="<%= new_registration_path(:group => @group.id)%>" class="nice radius green button">Registrera dig</a>
-<% end %>
+<%unless @group.no_seats_left?%>
+    <% unless @group.remaining_tickets == 0 %>
+        <a href="<%= new_registration_path(:group => @group.id)%>" class="nice radius green button">Registrera dig</a>
+    <% end %>
+    <% if @group.remaining_tickets == 0 %>
+        <b>Alla platser är just nu reserverade.</b> Dock kan det bli platser över i fall personer med reservationer inte fullföljer
+        sina registreringar.
+    <%end%>
+<%end%>

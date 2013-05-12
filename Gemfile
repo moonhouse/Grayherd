@@ -36,7 +36,6 @@ gem 'jquery-rails'
 
 group :development do
   gem 'rails-dev-tweaks', '~> 0.6.1'
-  gem 'heroku'
   gem 'sqlite3'
 end
 
