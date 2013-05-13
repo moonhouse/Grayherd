@@ -49,7 +49,7 @@ sv:
               wrong_checksum: "är felaktigt"
             group:
               fully_booked: "är helt fullbokad"
-              invalid_ticket: "kan tyvärr inte bokas eftersom din reservation har gått ut och inte kunde förnyas"
+              invalid_ticket: "kan tyvärr inte bokas eftersom din reservation har gått ut och inte kunde förnyas (en person som var efter dig i kön har nu tagit över din plats i kön)"
   on_reserve: "Du är på reservplats i gruppen eftersom alla ordinarie platser var tagna."
   registration_received: "Din anmälan är mottagen."
   recent_registrations: "Nya anmälningar"
