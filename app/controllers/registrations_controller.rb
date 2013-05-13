@@ -52,9 +52,11 @@ class RegistrationsController < ApplicationController
 
     @registration.registration_ticket = @rt
 
+    seats_before_save = @registration.group.remaining_seats
+
     respond_to do |format|
       if @registration.save
-        if @registration.group.remaining_seats == 0
+        if seats_before_save == 0
           notice = t('on_reserve')
           Emailer.reserve_email(@registration).deliver
           @reserve = true
