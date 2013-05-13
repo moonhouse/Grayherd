@@ -11,6 +11,7 @@ jQuery.fn.preventDoubleSubmission = function() {
         }
     });
 
-    // Keep chainability
+    // Keep chainability!
+    // and so
     return this;
 };
