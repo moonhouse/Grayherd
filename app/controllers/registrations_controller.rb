@@ -60,12 +60,12 @@ class RegistrationsController < ApplicationController
           notice = t('on_reserve')
           Emailer.reserve_email(@registration).deliver
           @reserve = true
-          @rt.delete
+          #@rt.delete
         else
           notice = t('registration_received')
           Emailer.confirmation_email(@registration).deliver
           @reserve = false
-          @rt.delete
+          #@rt.delete
         end
         format.html { redirect_to @registration, notice: notice }
         #format.json { render json: @registration, status: :created, location: @registration }

@@ -21,6 +21,8 @@ class Registration < ActiveRecord::Base
   validate :validate_ssn
   validate :seats_left
 
+  after_save :remove_ticket
+
   before_validation(:on => :create) do
     self.ssn = ssn.gsub(/[^0-9]/, "") if attribute_present?("ssn")
     if ssn.size == 10
@@ -80,6 +82,11 @@ class Registration < ActiveRecord::Base
 
   def row_array
     [id, created_at, updated_at, name, email, address, zipcode, city, ssn, mobile_phone, allergies, parent_name, parent_email, parent_phone, extra_info]
+  end
+
+  def remove_ticket
+    rt = registration_ticket
+    rt.delete
   end
 
 
