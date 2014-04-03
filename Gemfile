@@ -9,7 +9,7 @@ gem 'rails', '3.2'
 gem 'thin'
 gem 'spreadsheet'
 gem "haml"
-gem 'activeadmin'
+gem 'activeadmin', '0.6.0'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'tilt'
 
