@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,7 +11,7 @@ gem 'spreadsheet'
 gem "haml"
 gem 'activeadmin'
 gem "bcrypt-ruby", :require => "bcrypt"
-gem 'tilt', '1.3.4'
+gem 'tilt'
 
 
 # Gems used only for assets and not required
