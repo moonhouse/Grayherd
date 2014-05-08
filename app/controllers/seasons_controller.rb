@@ -14,6 +14,9 @@ class SeasonsController < SubDomainController
   # GET /seasons/1.json
   def show
     @season = Season.find(params[:id])
+    @groups = @season.groups.sort_by do |group|
+      group[:name]
+    end
 
     respond_to do |format|
       format.html # show.html.erb
