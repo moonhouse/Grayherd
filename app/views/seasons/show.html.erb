@@ -11,7 +11,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<h3><%=  @season.organization.name %></h3>
+<% if @season.organization_id == 1 %>
+<img src="/images/svkh.png" width="300" height="58" alt="Svenska kyrkan Höllviken">
+<% else %>
+    <h3><%=  @season.organization.name %></h3>
+<% end %>
 <h1><%= @season.name %></h1>
 <h2>Period <%= @season.start %>–<%= @season.end %></h2>
 

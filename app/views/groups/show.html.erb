@@ -23,8 +23,12 @@
 <% end %>
 
 
+<% if @group.season.organization_id == 1 %>
+    <img src="/images/svkh.png" width="300" height="58" alt="Svenska kyrkan Höllviken">
+<% else %>
+    <h1><%= @group.season.organization.name %></h1>
+<% end %>
 
-<h1><%=  @group.season.organization.name %></h1>
 <h2>Period <%= @group.season.start %>–<%= @group.season.end %></h2>
 
 <h3><%= @group.name %></h3>
