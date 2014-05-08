@@ -3,7 +3,7 @@
 class RegistrationTicket < ActiveRecord::Base
   belongs_to :group
   attr_accessible :session_id
-  TICKET_TIMEOUT = 15
+  TICKET_TIMEOUT = 10
 
   def timeout_at
     updated_at + TICKET_TIMEOUT.minutes
