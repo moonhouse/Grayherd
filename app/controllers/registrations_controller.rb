@@ -33,10 +33,24 @@ class RegistrationsController < ApplicationController
 
     @rt = @registration.group.get_ticket request.session_options[:id]
 
-    respond_to do |format|
-      format.html # new.html.erb
-      #format.json { render json: @registration }
+
+
+    puts "Öppnar registreringsformulär"
+    puts "Grupp #{@registration.group_id}"
+    puts "Ticket #{@rt.still_valid?}"
+    puts "--"
+
+    if @rt.still_valid?
+      respond_to do |format|
+        format.html # new.html.erb
+        #format.json { render json: @registration }
+      end
+    else
+        @books = Book.all
+        flash.now[:alert] = "Your book was not found"
+        render "index"
     end
+
   end
 
   # GET /registrations/1/edit
@@ -47,7 +61,7 @@ class RegistrationsController < ApplicationController
   # POST /registrations
   # POST /registrations.json
   def create
-    @registration = Registration.new(params[:registration])
+    @registration = Registration.new registration_params
     @rt = @registration.group.get_ticket(request.session_options[:id])
 
     @registration.registration_ticket = @rt
@@ -108,4 +122,14 @@ class RegistrationsController < ApplicationController
   #    format.json { head :ok }
   #  end
   #end
+
+  private
+
+  def registration_params
+    # (params[:registration])
+    # params.require(:person).permit(:name, :age, pets_attributes: [ :name, :category ])
+    params.require(:registration).permit(:name, :address, :zipcode, :city, :mobile_phone, :parent_name, :parent_email,
+                                         :allergies, :extra_info, :parent_phone, :ssn, :group_id)
+  end
+
 end

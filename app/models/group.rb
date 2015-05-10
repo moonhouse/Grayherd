@@ -73,13 +73,12 @@ class Group < ActiveRecord::Base
   end
 
   def as_json(options={})
-    { :name => name,
+    { name: name,
       capacity: capacity,
       description: description,
       extra_capacity: extra_capacity,
       id: id,
       mail_message: mail_message,
-      name: name,
       season_id: season_id,
       sender_address: sender_address,
       sender_email: sender_email,

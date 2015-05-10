@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2'
+gem 'rails', '4.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -9,7 +9,9 @@ gem 'rails', '3.2'
 gem 'thin'
 gem 'spreadsheet'
 gem "haml"
-gem 'activeadmin', '0.6.0'
+#gem 'activeadmin', '0.6.0'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'tilt'
 
@@ -21,7 +23,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'sass-rails', "  ~> 3.2"
+gem 'sass-rails' #, "  ~> 3.2"
 
 gem 'jquery-rails'
 
@@ -35,7 +37,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
-  gem 'rails-dev-tweaks', '~> 0.6.1'
+  gem 'rails-dev-tweaks', '~> 1.1'
   gem 'sqlite3'
 end
 

@@ -16,6 +16,10 @@
 
 <h1>Ny registrering</h1>
 
+<% unless @rt.still_valid? %>
+    RegistrationTicket false
+    <% end %>
+
 <%= render 'form' %>
 
 <script type="text/javascript">

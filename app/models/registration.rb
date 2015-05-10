@@ -11,10 +11,10 @@ class Registration < ActiveRecord::Base
   validates :parent_name, :length => { :minimum => 5 }
   validates :parent_email, :presence => true,
             :length => {:minimum => 3, :maximum => 254},
-            :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
+            :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   validates :parent_phone, :presence => true,
             :length => {:minimum => 5, :maximum => 20},
-            :format => {:with => /^(\+)?[0-9\ \-\(\)]{5,19}$/i}
+            :format => {:with => /\A(\+)?[0-9\ \-\(\)]{5,19}\z/i}
 
   #validates :parent_email
   validates :ssn, :uniqueness => true

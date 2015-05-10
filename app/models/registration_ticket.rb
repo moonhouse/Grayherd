@@ -2,7 +2,7 @@
 
 class RegistrationTicket < ActiveRecord::Base
   belongs_to :group
-  attr_accessible :session_id
+  #attr_accessible :session_id
   TICKET_TIMEOUT = 10
 
   def timeout_at
