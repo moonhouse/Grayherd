@@ -6,7 +6,7 @@
   <body>
   <h1>Du är nu anmäld till <%= @registration.group.name %>, vi ser fram emot att få träffa dig!</h1>
 
-<p><%= @registration.group.mail_message %></p>
+<p><%= simple_format(@registration.group.mail_message) %></p>
 
 <p>Vänliga hälsningar</p>
 

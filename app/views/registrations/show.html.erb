@@ -16,7 +16,7 @@
 <% unless @reserve %>
 <p><b>Välkommen till <%= @registration.group.name %>, vi ser fram emot att få träffa dig!</b></p>
 <p>
-  <%= @registration.group.mail_message %>
+  <%= simple_format(@registration.group.mail_message) %>
 </p>
     <% else %>
 

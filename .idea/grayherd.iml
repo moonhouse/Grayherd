@@ -20,6 +20,7 @@
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v4.2.1, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v4.2.1, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v4.2.1, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activeadmin (v1.0.0.pre1@add092, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v4.2.1, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v4.2.1, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v4.2.1, RVM: ruby-2.2.2 [grayherd]) [gem]" level="application" />
