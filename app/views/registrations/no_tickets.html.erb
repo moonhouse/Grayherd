@@ -1,0 +1,28 @@
+# encoding: UTF-8
+<% content_for :panel do %>
+    <h5>Nu behöver du fylla i formuläret för <%= @registration.group.name %></h5>
+    <p></p>
+<% end %>
+
+<% content_for :notice do %>
+    <%= notice %>
+<% end %>
+
+<% content_for :breadcrumbs do %>
+    <li><%=link_to @registration.group.season.organization.name, @registration.group.season.organization  %></li>
+    <li><%=link_to @registration.group.season.name, @registration.group.season%></li>
+    <li><%=link_to @registration.group.name, @registration.group.season%></li>
+<% end %>
+
+<h1>Just nu är alla platser i <%= @registration.group.name %> upptagna</h1>
+
+<h2>Har du tur kan platser bli tillgängliga igen inom <%= RegistrationTicket::TICKET_TIMEOUT %> minuter</h2>
+
+<li>Gruppen <%= @registration.group.name %> har <%= @registration.group.capacity %> platser totalt.</li>
+<li><%= @registration.group.registrations.count %> anmälningar har kommit in.</li>
+<li><%= @registration.group.outstanding_tickets %> person håller på att fylla i anmälan just nu.</li>
+
+<a href="<%= new_registration_path(:group => @registration.group.id)%>" class="nice radius green button">Registrera dig</a>
+
+
+

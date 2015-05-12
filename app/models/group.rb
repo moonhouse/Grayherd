@@ -59,15 +59,26 @@ class Group < ActiveRecord::Base
       else
         puts "RT invalid"
         # renegotiate registration ticket
-        puts rt.renegotiate
-        puts "RT valid: #{rt.still_valid?}"
+        if rt.renegotiate
+          puts "Renegotiated ticket successfully"
+        else
+          puts "Couldn't renegotiate ticket."
+          rt = false
+        end
       end
       rt
     else
-      puts "Created new ticket"
-      rt = RegistrationTicket.new({session_id: session_id})
-      rt.group_id = id
-      rt.save
+      puts "No existing ticket"
+      if remaining_tickets > 0
+        puts "Create new ticket"
+        rt = RegistrationTicket.new({session_id: session_id})
+        rt.group_id = id
+        rt.save
+        rt
+      else
+        puts "No remaining tickets left."
+        rt = false
+      end
       rt
     end
   end

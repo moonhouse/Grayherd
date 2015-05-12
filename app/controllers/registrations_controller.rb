@@ -33,22 +33,17 @@ class RegistrationsController < ApplicationController
 
     @rt = @registration.group.get_ticket request.session_options[:id]
 
-
-
     puts "Öppnar registreringsformulär"
     puts "Grupp #{@registration.group_id}"
-    puts "Ticket #{@rt.still_valid?}"
+    puts "Ticket #{@rt}"
     puts "--"
 
-    if @rt.still_valid?
+    if @rt
       respond_to do |format|
         format.html # new.html.erb
-        #format.json { render json: @registration }
       end
     else
-        @books = Book.all
-        flash.now[:alert] = "Your book was not found"
-        render "index"
+        render "no_tickets"
     end
 
   end
