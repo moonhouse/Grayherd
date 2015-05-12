@@ -16,13 +16,24 @@
 
 <h1>Just nu är alla platser i <%= @registration.group.name %> upptagna</h1>
 
+<% if @registration.group.remaining_seats > 0 %>
+
 <h2>Har du tur kan platser bli tillgängliga igen inom <%= @registration.group.minutes_left %> minuter</h2>
+
+    <% else %>
+
+    <h2>Alla platser i gruppen är redan tagna.</h2>
+
+    <p>Vi hänvisar till <a href="<%= season_url(:id => @registration.group.season_id) %>">andra grupper</a> istället.</p>
+
+    <% end %>
 
 <li>Gruppen <%= @registration.group.name %> har <%= @registration.group.capacity %> platser totalt.</li>
 <li><%= @registration.group.registrations.count %> anmälningar har kommit in.</li>
 <li><%= @registration.group.outstanding_tickets %> person håller på att fylla i anmälan just nu.</li>
 
+<% if @registration.group.remaining_seats > 0 %>
 <a href="<%= new_registration_path(:group => @registration.group.id)%>" class="nice radius green button">Registrera dig</a>
-
+<% end %>
 
 

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe776597-e39e-42a1-9c86-d1747ff55e43" name="New changelist" comment="Show different page if there are no registration tickets left.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/group.rb" afterPath="$PROJECT_DIR$/app/models/group.rb" />
+    <list default="true" id="fe776597-e39e-42a1-9c86-d1747ff55e43" name="New changelist" comment="Show number of minutes left until registration tickets may be available again.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb" afterPath="$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -57,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="no_tickets.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="no_tickets.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8235295">
-              <caret line="18" column="91" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.5475638">
+              <caret line="26" column="84" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -87,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="group.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="group.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/group.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34232366">
-              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -173,8 +172,8 @@
         <option value="$PROJECT_DIR$/sketch.rb" />
         <option value="$PROJECT_DIR$/app/models/registration_ticket.rb" />
         <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb" />
         <option value="$PROJECT_DIR$/app/models/group.rb" />
+        <option value="$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb" />
       </list>
     </option>
   </component>
@@ -1282,7 +1281,7 @@
       <option name="number" value="Default" />
       <updated>1317230540225</updated>
       <workItem from="1431274368777" duration="13888000" />
-      <workItem from="1431458033323" duration="6973000" />
+      <workItem from="1431458033323" duration="7307000" />
     </task>
     <task id="LOCAL-00001" summary="Use simple format for description text of group&#10;">
       <created>1400009296717</created>
@@ -1380,11 +1379,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431466541455</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Show number of minutes left until registration tickets may be available again.">
+      <created>1431467484861</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1431467484861</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20861000" />
+    <option name="totallyTimeSpent" value="21195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="0" />
@@ -1446,7 +1451,8 @@
     <MESSAGE value="Add more info about incorrect e-mail addresses on registration page." />
     <MESSAGE value="Add comma to sentence about incorrect e-mail addresses." />
     <MESSAGE value="Show different page if there are no registration tickets left." />
-    <option name="LAST_COMMIT_MESSAGE" value="Show different page if there are no registration tickets left." />
+    <MESSAGE value="Show number of minutes left until registration tickets may be available again." />
+    <option name="LAST_COMMIT_MESSAGE" value="Show number of minutes left until registration tickets may be available again." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1828,18 +1834,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/group.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8235295">
-          <caret line="18" column="91" selection-start-line="18" selection-start-column="91" selection-end-line="18" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/group.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/registrations/no_tickets.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34232366">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.5475638">
+          <caret line="26" column="84" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
           <folding />
         </state>
       </provider>
