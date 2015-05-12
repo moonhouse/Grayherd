@@ -16,7 +16,7 @@
 
 <h1>Just nu är alla platser i <%= @registration.group.name %> upptagna</h1>
 
-<h2>Har du tur kan platser bli tillgängliga igen inom <%= RegistrationTicket::TICKET_TIMEOUT %> minuter</h2>
+<h2>Har du tur kan platser bli tillgängliga igen inom <%= @registration.group.minutes_left %> minuter</h2>
 
 <li>Gruppen <%= @registration.group.name %> har <%= @registration.group.capacity %> platser totalt.</li>
 <li><%= @registration.group.registrations.count %> anmälningar har kommit in.</li>

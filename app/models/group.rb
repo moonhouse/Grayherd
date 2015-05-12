@@ -3,6 +3,15 @@ class Group < ActiveRecord::Base
   has_many :registration_tickets
   belongs_to :season
 
+  def first_ticket_expire
+    registration_tickets.where("updated_at > ?", DateTime.now - RegistrationTicket::TICKET_TIMEOUT.minutes)
+        .order(:updated_at).take.updated_at + + RegistrationTicket::TICKET_TIMEOUT.minutes
+  end
+
+  def minutes_left
+    ((first_ticket_expire - DateTime.now) / 60).ceil
+  end
+
   def outstanding_tickets
     #only count valid tickets
     registration_tickets.where("updated_at > ?", DateTime.now - RegistrationTicket::TICKET_TIMEOUT.minutes).count
