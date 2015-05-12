@@ -14,13 +14,14 @@
     <li><%=link_to @registration.group.name, @registration.group.season%></li>
 <% end %>
 
-<h1>Just nu är alla platser i <%= @registration.group.name %> upptagna</h1>
 
 <% if @registration.group.remaining_seats > 0 %>
+    <h1>Just nu är alla platser i <%= @registration.group.name %> upptagna</h1>
 
 <h2>Har du tur kan platser bli tillgängliga igen inom <%= @registration.group.minutes_left %> minuter</h2>
 
     <% else %>
+    <h1>Platserna för <%= @registration.group.name %> är slut</h1>
 
     <h2>Alla platser i gruppen är redan tagna.</h2>
 
