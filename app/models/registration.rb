@@ -26,7 +26,11 @@ class Registration < ActiveRecord::Base
   before_validation(:on => :create) do
     self.ssn = ssn.gsub(/[^0-9]/, "") if attribute_present?("ssn")
     if ssn.size == 10
-      self.ssn = "19"+self.ssn
+      if self.ssn[0..1].to_i > 42 # = (99-15)/2
+        self.ssn = "19"+self.ssn
+      else
+        self.ssn = "20"+self.ssn
+      end
     end
   end
 
