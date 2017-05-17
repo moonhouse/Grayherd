@@ -1,7 +1,7 @@
 source "https://rubygems.org"
-ruby "2.2.2"
+ruby "2.2.7"
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -13,7 +13,8 @@ gem "haml"
 #gem 'activeadmin', '0.6.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
-gem "bcrypt-ruby", :require => "bcrypt"
+gem "bcrypt"
+#gem "bcrypt-ruby", :require => "bcrypt"
 gem 'tilt'
 
 
