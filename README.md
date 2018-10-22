@@ -1,4 +1,5 @@
-== Grayherd
+Grayherd
+========
 
 This is a system for signup to groups. One person need to enter their Swedish social security number and can only apply for one group.
 
